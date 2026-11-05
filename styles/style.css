@@ -30,7 +30,7 @@ ul{list-style:none}
   font-family:inherit;
 }
 .boton:hover{background:var(--acento);border-color:var(--acento);color:var(--blanco)}
-.boton-negro{background:var(--negro);color:var(--blanco);border-radius:0;padding:.7rem 2.5rem}
+.boton-negro{background:var(--negro);color:var(--blanco);border-radius:6px;padding:.9rem 3rem;font-size:.65rem;letter-spacing:.12em}
 
 /* ===== Cabecera ===== */
 .cabecera{background:var(--blanco);border-bottom:1px solid var(--gris)}
@@ -62,8 +62,7 @@ ul{list-style:none}
   position:relative;
   overflow:hidden;
   background:var(--gris);
-  min-height:560px;
-  display:grid;
+  height:600px;
 }
 .hero::before{
   content:"UNICLUB";
@@ -82,17 +81,17 @@ ul{list-style:none}
 }
 .hero .contenedor{
   position:relative;
-  display:grid;
-  grid-template-columns:340px 460px;
+  height:100%;
+  display:flex;
   justify-content:center;
-  align-items:end;
-  padding-top:3rem;
+  align-items:flex-end;
 }
 .hero-caja{
   position:relative;
   z-index:2;
   align-self:center;
-  margin-bottom:3rem;
+  width:340px;
+  margin-right:-9rem;
   background:var(--negro);
   color:var(--blanco);
   padding:2rem;
@@ -102,21 +101,14 @@ ul{list-style:none}
 .hero-foto{
   position:relative;
   z-index:1;
-  margin-left:-5rem;
+  height:100%;
 }
 .hero-foto img{
   display:block;
-  width:100%;
-  height:auto;
+  height:100%;
+  width:auto;
   filter:grayscale(1);
 }
-
-/* ===== Beneficios ===== */
-..beneficios{...}
-.beneficios ul{...}
-.beneficios li{...}
-.beneficios strong{...}
-.beneficios .ico{...}
 
 /* ===== Beneficios ===== */
 .beneficios{padding:5rem 0 4rem}
@@ -137,6 +129,10 @@ ul{list-style:none}
 .beneficios strong{display:block;color:var(--negro);font-size:.8rem;font-weight:600;margin-bottom:.3rem}
 
 /* ===== Productos ===== */
+#nuevos{
+  background:linear-gradient(to top right,#d2d2d2 0%,#fff 60%);
+  padding-top:3rem;
+}
 .titulo-seccion{
   text-align:center;
   font-size:1rem;
@@ -148,8 +144,20 @@ ul{list-style:none}
 .titulo-seccion::after{content:"";display:block;width:3rem;height:2px;background:var(--acento);margin:.6rem auto 0}
 .productos{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2.5rem}
 .producto{text-align:center}
-.producto .foto{background:var(--gris-claro);aspect-ratio:1/1;display:grid;place-items:center;position:relative}
-.producto .foto svg{width:65%;height:auto}
+.producto .foto{
+  background:var(--gris);
+  aspect-ratio:3/4;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.producto .foto img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 .etiqueta{
   position:absolute;
   top:.6rem;
@@ -166,41 +174,144 @@ ul{list-style:none}
 .centrar{text-align:center;margin-bottom:4rem}
 
 /* ===== Banners ===== */
-.banners{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:4rem}
-.banner{
-  background:var(--gris);
-  min-height:180px;
-  padding:2rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  gap:.6rem;
+.banners{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  padding-bottom:5rem;
 }
-.banner:nth-child(2){background:var(--negro);color:var(--blanco)}
-.banner h3{font-size:1.6rem;text-transform:uppercase;line-height:1.1}
+.banner{
+  position:relative;
+  display:block;
+  aspect-ratio:2.6/1;
+  overflow:hidden;
+  background:#333;
+}
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(1);
+}
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+.banner span{
+  position:absolute;
+  left:1rem;
+  bottom:.8rem;
+  z-index:2;
+  color:var(--blanco);
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.banner:hover img{filter:grayscale(0)}
 
-/* ===== Newsletter ===== */
-.suscripcion{background:var(--negro);color:var(--blanco);padding:3rem 0;text-align:center}
-.suscripcion form{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
-.suscripcion input{padding:.6rem 1rem;border:0;min-width:240px;font-family:inherit}
-.suscripcion .boton{background:var(--acento);border-color:var(--acento);color:var(--blanco)}
+/* ===== Suscripción ===== */
+.suscripcion{
+  position:relative;
+  padding:5.5rem 0;
+  color:var(--blanco);
+  overflow:hidden;
+}
+.suscripcion::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),url("img/newsletter.jpg") center/cover;
+  filter:grayscale(1);
+}
+.suscripcion .contenedor{position:relative;z-index:1}
+.suscripcion-grid{
+  width:min(760px,92%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.suscripcion h2{
+  font-family:"Playfair Display",serif;
+  font-weight:400;
+  font-size:2.1rem;
+  line-height:1.15;
+}
+.suscripcion h2 em{font-style:italic;font-weight:700}
+.suscripcion-texto p{font-size:.7rem;color:#aaa;margin-top:1rem}
+.suscripcion-form input{
+  width:100%;
+  padding:.95rem 1rem;
+  border:0;
+  border-radius:6px;
+  background:var(--blanco);
+  font-family:inherit;
+  font-size:.75rem;
+}
+.suscripcion-form button{
+  width:100%;
+  margin-top:.8rem;
+  padding:1rem;
+  border:0;
+  border-radius:6px;
+  background:var(--negro);
+  color:var(--blanco);
+  font-family:inherit;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.suscripcion-form button:hover{background:var(--acento)}
 
 /* ===== Pie de página ===== */
-.pie{background:#0a0a0a;color:#bbb;padding:2.5rem 0 1.5rem;font-size:.85rem}
-.pie .columnas{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
-.pie h4{color:var(--blanco);margin-bottom:.6rem;font-size:.9rem}
-.pie li{margin-bottom:.3rem}
-.pie a:hover{color:var(--acento)}
-.derechos{text-align:center;margin-top:2rem;border-top:1px solid #333;padding-top:1rem;font-size:.75rem}
+.pie{
+  background:var(--negro);
+  color:#bbb;
+  padding:4rem 0 3.5rem;
+  font-family:"Jost","Nunito",sans-serif;
+}
+.pie .columnas{
+  width:min(880px,92%);
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:2rem;
+}
+.pie-logo{
+  display:inline-block;
+  color:var(--blanco);
+  font-size:2rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  line-height:1;
+}
+.redes{display:flex;gap:1rem;margin-top:1.2rem;font-size:.7rem;color:#bbb}
+.redes a:hover{color:var(--acento)}
+.pie h4{
+  color:var(--blanco);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.pie li{font-size:.72rem;line-height:2.3}
+.pie li a:hover{color:var(--acento)}
 
 /* ===== Responsive (siempre al final del archivo) ===== */
 @media (max-width:860px){
-  .hero .contenedor{grid-template-columns:1fr;justify-items:center}
-  .hero-foto{margin-left:0;order:-1;max-width:340px}
-  .hero-caja{margin-bottom:2rem}
+  .hero{height:auto}
+  .hero .contenedor{flex-direction:column;align-items:center;height:auto}
+  .hero-foto{order:-1;height:420px}
+  .hero-caja{margin:-3rem 0 2rem;width:min(340px,90%)}
   .beneficios ul,.productos{grid-template-columns:repeat(2,1fr)}
   .banners{grid-template-columns:1fr}
+  .suscripcion-grid{grid-template-columns:1fr;gap:2rem}
   .pie .columnas{grid-template-columns:1fr 1fr}
 }
 @media (max-width:480px){
