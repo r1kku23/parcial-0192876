@@ -1,0 +1,209 @@
+:root{
+  --negro:#000;
+  --blanco:#fff;
+  --gris:#d9d9d9;
+  --gris-claro:#f0f0f0;
+  --texto-suave:#666;
+  --acento:#ff4d2e;
+}
+
+/* ===== Base ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Nunito",Arial,sans-serif;color:var(--negro);background:var(--blanco);line-height:1.6}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.contenedor{width:min(1140px,92%);margin-inline:auto}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+
+/* ===== Botones ===== */
+.boton{
+  display:inline-block;
+  border:1px solid currentColor;
+  border-radius:2rem;
+  padding:.5rem 1.4rem;
+  font-size:.8rem;
+  font-weight:600;
+  text-transform:uppercase;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+  font-family:inherit;
+}
+.boton:hover{background:var(--acento);border-color:var(--acento);color:var(--blanco)}
+.boton-negro{background:var(--negro);color:var(--blanco);border-radius:0;padding:.7rem 2.5rem}
+
+/* ===== Cabecera ===== */
+.cabecera{background:var(--blanco);border-bottom:1px solid var(--gris)}
+.cabecera .contenedor{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  padding:1rem 0;
+}
+.logo{font-family:"Chewy",cursive;font-size:1.6rem;letter-spacing:.05em}
+.menu{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.85rem;font-weight:600;text-transform:uppercase}
+.menu a:hover{color:var(--acento)}
+.iconos{display:flex;gap:1rem;align-items:center;font-weight:800}
+.carrito{
+  background:var(--negro);
+  color:var(--blanco);
+  border-radius:50%;
+  width:1.6rem;
+  height:1.6rem;
+  display:inline-grid;
+  place-items:center;
+  font-size:.8rem;
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:var(--gris);
+  min-height:560px;
+  display:grid;
+}
+.hero::before{
+  content:"UNICLUB";
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  text-align:center;
+  font-family:"Chewy",cursive;
+  font-size:clamp(5rem,24vw,19rem);
+  line-height:1;
+  color:var(--blanco);
+  opacity:.55;
+  pointer-events:none;
+}
+.hero .contenedor{
+  position:relative;
+  display:grid;
+  grid-template-columns:340px 460px;
+  justify-content:center;
+  align-items:end;
+  padding-top:3rem;
+}
+.hero-caja{
+  position:relative;
+  z-index:2;
+  align-self:center;
+  margin-bottom:3rem;
+  background:var(--negro);
+  color:var(--blanco);
+  padding:2rem;
+}
+.hero-caja h1{font-size:2.6rem;line-height:1.05;font-weight:800;text-transform:uppercase}
+.hero-caja p{font-size:.75rem;margin:.75rem 0 1.25rem;letter-spacing:.08em}
+.hero-foto{
+  position:relative;
+  z-index:1;
+  margin-left:-5rem;
+}
+.hero-foto img{
+  display:block;
+  width:100%;
+  height:auto;
+  filter:grayscale(1);
+}
+
+/* ===== Beneficios ===== */
+..beneficios{...}
+.beneficios ul{...}
+.beneficios li{...}
+.beneficios strong{...}
+.beneficios .ico{...}
+
+/* ===== Beneficios ===== */
+.beneficios{padding:5rem 0 4rem}
+.beneficios .contenedor{max-width:900px}
+.beneficios ul{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.beneficios li{font-size:.75rem;font-weight:300;color:var(--texto-suave);line-height:1.5}
+.beneficios svg{
+  display:block;
+  width:28px;
+  height:28px;
+  margin-bottom:.8rem;
+  fill:none;
+  stroke:var(--negro);
+  stroke-width:1.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.beneficios strong{display:block;color:var(--negro);font-size:.8rem;font-weight:600;margin-bottom:.3rem}
+
+/* ===== Productos ===== */
+.titulo-seccion{
+  text-align:center;
+  font-size:1rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  margin-bottom:2rem;
+}
+.titulo-seccion::after{content:"";display:block;width:3rem;height:2px;background:var(--acento);margin:.6rem auto 0}
+.productos{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2.5rem}
+.producto{text-align:center}
+.producto .foto{background:var(--gris-claro);aspect-ratio:1/1;display:grid;place-items:center;position:relative}
+.producto .foto svg{width:65%;height:auto}
+.etiqueta{
+  position:absolute;
+  top:.6rem;
+  left:.6rem;
+  background:var(--acento);
+  color:var(--blanco);
+  font-size:.7rem;
+  font-weight:800;
+  padding:.1rem .6rem;
+}
+.producto h3{font-size:.95rem;font-weight:600;margin-top:.8rem}
+.precio{color:var(--texto-suave);font-size:.9rem;margin-bottom:.6rem}
+.producto .boton{padding:.3rem 1rem;font-size:.7rem}
+.centrar{text-align:center;margin-bottom:4rem}
+
+/* ===== Banners ===== */
+.banners{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:4rem}
+.banner{
+  background:var(--gris);
+  min-height:180px;
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  gap:.6rem;
+}
+.banner:nth-child(2){background:var(--negro);color:var(--blanco)}
+.banner h3{font-size:1.6rem;text-transform:uppercase;line-height:1.1}
+
+/* ===== Newsletter ===== */
+.suscripcion{background:var(--negro);color:var(--blanco);padding:3rem 0;text-align:center}
+.suscripcion form{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+.suscripcion input{padding:.6rem 1rem;border:0;min-width:240px;font-family:inherit}
+.suscripcion .boton{background:var(--acento);border-color:var(--acento);color:var(--blanco)}
+
+/* ===== Pie de página ===== */
+.pie{background:#0a0a0a;color:#bbb;padding:2.5rem 0 1.5rem;font-size:.85rem}
+.pie .columnas{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+.pie h4{color:var(--blanco);margin-bottom:.6rem;font-size:.9rem}
+.pie li{margin-bottom:.3rem}
+.pie a:hover{color:var(--acento)}
+.derechos{text-align:center;margin-top:2rem;border-top:1px solid #333;padding-top:1rem;font-size:.75rem}
+
+/* ===== Responsive (siempre al final del archivo) ===== */
+@media (max-width:860px){
+  .hero .contenedor{grid-template-columns:1fr;justify-items:center}
+  .hero-foto{margin-left:0;order:-1;max-width:340px}
+  .hero-caja{margin-bottom:2rem}
+  .beneficios ul,.productos{grid-template-columns:repeat(2,1fr)}
+  .banners{grid-template-columns:1fr}
+  .pie .columnas{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .cabecera .contenedor{justify-content:center}
+  .beneficios ul,.productos,.pie .columnas{grid-template-columns:1fr}
+}
